@@ -1,5 +1,5 @@
 use std::fs::File;
-use std::io::{BufRead, BufReader, Error};
+use std::io::{BufRead, BufReader};
 
 fn part_1(values: &[u64]) {
     let mut gt_count = 0;
@@ -29,8 +29,8 @@ fn part_2(values: &[u64]) {
     println!("Part 2: {}", gt_count);
 }
 
-fn main() -> Result<(), Error> {
-    let reader = BufReader::new(File::open("day_1/input.txt")?);
+fn main() {
+    let reader = BufReader::new(File::open("day_1/input.txt").unwrap());
 
     let values: Vec<u64> = reader
         .lines()
@@ -43,6 +43,4 @@ fn main() -> Result<(), Error> {
 
     part_1(&values);
     part_2(&values);
-
-    Ok(())
 }
