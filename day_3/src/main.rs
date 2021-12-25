@@ -4,7 +4,7 @@ use std::io::{BufRead, BufReader};
 fn count_bits(values: &[u32], bit_mask: u32) -> usize {
     let mut one_count = 0;
     for value in values {
-        if *value & bit_mask == bit_mask {
+        if *value & bit_mask != 0 {
             one_count += 1;
         }
     }
@@ -53,7 +53,6 @@ fn life_support_rating(
 
         bit_mask >>= 1;
 
-        // println!("{:?}", values);
         if values.len() == 1 {
             break;
         }
